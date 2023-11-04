@@ -1,0 +1,47 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.9'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'fontys.group.greenPath'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.flywaydb:flyway-core:9.1.6'
+	implementation 'org.flywaydb:flyway-mysql:9.1.6'
+	implementation 'org.springframework.boot:spring-boot-starter-cache'
+	implementation 'mysql:mysql-connector-java:8.0.30'
+	implementation 'net.sf.ehcache:ehcache:2.10.6'
+	implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+	implementation 'com.google.maps:google-maps-services:2.2.0'
+	implementation 'com.google.code.gson:gson:2.8.9'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.2'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.2'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.cloud:spring-cloud-starter-bootstrap:3.1.3'
+	testImplementation 'com.playtika.testcontainers:embedded-mysql:2.2.5'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
